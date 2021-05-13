@@ -36,8 +36,17 @@ export default class Board {
 
 	updateBoard() {
 		let data = JSON.parse(document.getElementById("output-area").innerHTML);
+		this.clearBoard();
 		data.forEach((element) => {
 			this.cells[element.x][element.y].modifyCell(element.type);
 		});
+	}
+
+	clearBoard() {
+		for (let i = 0; i < 10; i++) {
+			for (let j = 0; j < 10; j++) {
+				this.cells[i][j].modifyCell("delete");
+			}
+		}
 	}
 }
