@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Map editor</title>
+		<script src="Editor/editor.js" type="module" defer></script>
+		<link rel="stylesheet" href="Editor/editor.css" />
+	</head>
+	<body>
+		<div id="root">
+			<section id="board-container"></section>
+			<section id="options-container">
+				<div class="options-element server-element" id="save-level-on-server">Save level on the server</div>
+				<div class="options-element server-element">Save test level on the server</div>
+				<div class="options-element server-element" id="load-level-from-server">Load the level from the server</div>
+				<div class="options-element level-element" id="wall-element">Wall</div>
+				<div class="options-element level-element" id="enemy-element">Enemy</div>
+				<div class="options-element level-element" id="treasure-element">Treasure</div>
+				<div class="options-element level-element" id="light-element">Light</div>
+				<div class="options-element level-element" id="delete-element">Delete</div>
+			</section>
+			<section id="output-container">
+				<form id="output-form">
+					<textarea id="output-area" name="output" readonly></textarea>
+				</form>
+			</section>
+		</div>
+	</body>
+</html>
