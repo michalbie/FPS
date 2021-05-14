@@ -1,4 +1,5 @@
 import { getOutput } from "../OutputArea/outputGenerator.js";
+import getTestLevelData from "../../assets/TestLevel.js";
 
 const addOnclickToOption = (option_id, set_value) => {
 	document.getElementById(option_id).addEventListener("click", () => {
@@ -9,6 +10,13 @@ const addOnclickToOption = (option_id, set_value) => {
 const setSaveToServerOnclick = () => {
 	document.getElementById("save-level-on-server").addEventListener("click", () => {
 		const output = getOutput();
+		sendOutputToServer(output);
+	});
+};
+
+const setSaveTestLevelToServerOnclick = () => {
+	document.getElementById("save-test-level-on-server").addEventListener("click", () => {
+		const output = getTestLevelData();
 		sendOutputToServer(output);
 	});
 };
@@ -62,6 +70,7 @@ const updateOutput = (levelData) => {
 
 export const addOnclicksToOptions = () => {
 	setSaveToServerOnclick();
+	setSaveTestLevelToServerOnclick();
 	setLoadFromServerOnclick();
 	addOnclickToOption("wall-element", "wall");
 	addOnclickToOption("enemy-element", "enemy");

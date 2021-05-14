@@ -19,18 +19,26 @@ fun main() {
         Gson().toJson(list)
     }
 
-    post("/getLevel") { req, res ->
-        getLevel(req, res, level)
-    }
+    options("/getLevel") { req, res -> checkOptions(req, res) }
+    post("/getLevel") {req, res ->  getLevel(req, res, level) }
+
+}
+
+fun checkOptions(request: Request, response: Response) {
+    println("options")
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    response.header("Content-Type", "text/plain; charset=utf-8")
 }
 
 fun getLevel(req : Request, res : Response, level : Level?): String? {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.type("application/json")
+
     if (level != null) {
         return Gson().toJson(level.itemsList)
     } else {
-        val type = object : TypeToken<MutableList<LevelItem>>(){}.type
-        var list: MutableList<LevelItem> = Gson().fromJson(req.body(), type)
-        return Gson().toJson(list)
+        return "Failed"
     }
 }
 

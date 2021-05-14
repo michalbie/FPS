@@ -1,7 +1,7 @@
 var output = [];
 
-export const updateOutput = (type, x, y) => {
-	const id = x.toString() + y.toString();
+export const updateOutput = (type, x, z) => {
+	const id = x.toString() + z.toString();
 	const sameIdElement = output.filter((obj) => {
 		return obj.id == id;
 	});
@@ -10,7 +10,7 @@ export const updateOutput = (type, x, y) => {
 		if (type != "delete") {
 			sameIdElement[0].id = id;
 			sameIdElement[0].x = x;
-			sameIdElement[0].y = y;
+			sameIdElement[0].z = z;
 			sameIdElement[0].type = type;
 		} else {
 			output.splice(output.indexOf(sameIdElement[0]), 1);
@@ -20,7 +20,7 @@ export const updateOutput = (type, x, y) => {
 			output.push({
 				id: id,
 				x: x,
-				y: y,
+				z: z,
 				type: type,
 			});
 		}

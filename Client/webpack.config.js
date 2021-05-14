@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
 	entry: "./src/index.js",
 	output: {
-		filename: "bundle.js", // bundle.js to wynik kompilacji projektu przez webpacka
+		filename: "bundle.js",
 	},
 	mode: "development", // none, development, production
 	devServer: {
